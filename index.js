@@ -6,5 +6,16 @@ function callback(){
 function countdown(callback){
   window.setTimeout(2000);
   callback();
-  return; 
+  return;
 }
+
+function createMultiplier(multiplierValue){
+  return function(multiplierValue, otherValue) {
+    return multiplierValue * otherValue;
+  }
+}
+
+doubler = createMultiplier(2);
+tripler = createMultiplier(3);
+
+$('h1').append(doubler(5));
